@@ -1,0 +1,26 @@
+// Mirrors tailwind.config.js `idealy` palette for use where NativeWind
+// class names aren't available (SVG fills, LinearGradient stops, etc).
+export const IdealyColors = {
+  green: '#0F3D2E',
+  greenDark: '#0A2A20',
+  greenLight: '#1B5C42',
+  gold: '#D4AF37',
+  goldLight: '#F0C93B',
+  goldDark: '#A9841F',
+  bg: '#F7F8FA',
+  card: '#FFFFFF',
+  text: '#1A1F1C',
+  muted: '#6B7280',
+  income: '#16A34A',
+  incomeBg: '#E5F5EC',
+  expense: '#E11D48',
+  expenseBg: '#FCE7ED',
+  savings: '#2563EB',
+  savingsBg: '#E3EEFC',
+  budgets: '#C9971C',
+  budgetsBg: '#FBF0D9',
+  bazary: '#8B5CF6',
+  bazaryBg: '#F1E8FB',
+  ai: '#0F9D74',
+  aiBg: '#E5F5EC',
+};
