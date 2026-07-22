@@ -5,6 +5,10 @@ module.exports = function (api) {
       ['babel-preset-expo', { jsxImportSource: 'nativewind' }],
       'nativewind/babel',
     ],
-    plugins: [['@babel/plugin-proposal-decorators', { legacy: true }]],
+    plugins: [
+      ['@babel/plugin-proposal-decorators', { legacy: true }],
+      ['@babel/plugin-transform-flow-strip-types'],
+      ['@babel/plugin-transform-class-properties', { loose: true }],
+    ],
   };
 };

@@ -15,15 +15,15 @@ export default function BentoCard({ icon, iconColor, iconBg, label, value, subla
   return (
     <Pressable
       onPress={onPress}
-      className="w-[48%] rounded-3xl p-4 mb-3 border border-black/5"
+      className="w-[31%] rounded-3xl p-3 mb-3 border border-black/5"
       style={{ backgroundColor: iconBg }}
     >
-      <View className="w-9 h-9 rounded-full bg-white/60 items-center justify-center mb-2">
-        <Ionicons name={icon} size={18} color={iconColor} />
+      <View className="w-8 h-8 rounded-full bg-white/60 items-center justify-center mb-2">
+        <Ionicons name={icon} size={16} color={iconColor} />
       </View>
       <Text className="text-idealy-muted text-xs mb-1">{label}</Text>
-      <Text className="text-idealy-text text-xl font-bold mb-1">{value}</Text>
-      <Text className="text-idealy-muted text-xs">{sublabel}</Text>
+      <Text className="text-idealy-text text-base font-bold mb-1">{value}</Text>
+      <Text className="text-idealy-muted text-[10px]">{sublabel}</Text>
     </Pressable>
   );
 }

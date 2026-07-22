@@ -5,9 +5,9 @@ import type { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { useNavigation } from '@react-navigation/native';
 
 import DashboardScreen from '../screens/DashboardScreen';
-import DepensesScreen from '../screens/DepensesScreen';
+import ReportsScreen from '../screens/ReportsScreen';
 import BudgetScreen from '../screens/BudgetScreen';
-import PlusMenuScreen from '../screens/PlusMenuScreen';
+import ParametresScreen from '../screens/ParametresScreen';
 import { IdealyColors } from '../theme/colors';
 import type { TabParamList } from './types';
 
@@ -24,7 +24,7 @@ const TAB_ICONS: Record<keyof TabParamList, keyof typeof Ionicons.glyphMap> = {
   Rapports: 'bar-chart-outline',
   Ajouter: 'add',
   Budgets: 'wallet-outline',
-  Plus: 'ellipsis-horizontal',
+  Plus: 'settings-outline',
 };
 
 const TAB_LABELS: Record<keyof TabParamList, string> = {
@@ -32,7 +32,7 @@ const TAB_LABELS: Record<keyof TabParamList, string> = {
   Rapports: 'Rapports',
   Ajouter: 'Ajouter',
   Budgets: 'Budgets',
-  Plus: 'Plus',
+  Plus: 'Réglages',
 };
 
 function CustomTabBar({ state, navigation }: BottomTabBarProps) {
@@ -46,16 +46,19 @@ function CustomTabBar({ state, navigation }: BottomTabBarProps) {
 
         if (name === 'Ajouter') {
           return (
-            <View key={route.key} className="flex-1 items-center -mt-8">
-              <Pressable
-                onPress={() => rootNavigation.navigate('AddTransaction')}
+            <Pressable
+              key={route.key}
+              onPress={() => rootNavigation.navigate('AddTransaction')}
+              className="flex-1 items-center -mt-8"
+            >
+              <View
                 className="w-14 h-14 rounded-full items-center justify-center"
                 style={{ backgroundColor: IdealyColors.green, borderWidth: 4, borderColor: IdealyColors.goldLight }}
               >
                 <Ionicons name="add" size={26} color="white" />
-              </Pressable>
+              </View>
               <Text className="text-idealy-muted text-[11px] mt-1">{TAB_LABELS[name]}</Text>
-            </View>
+            </Pressable>
           );
         }
 
@@ -79,10 +82,10 @@ export default function BottomTabs() {
   return (
     <Tab.Navigator screenOptions={{ headerShown: false }} tabBar={(props) => <CustomTabBar {...props} />}>
       <Tab.Screen name="Accueil" component={DashboardScreen} />
-      <Tab.Screen name="Rapports" component={DepensesScreen} />
+      <Tab.Screen name="Rapports" component={ReportsScreen} />
       <Tab.Screen name="Ajouter" component={AjouterPlaceholder} />
       <Tab.Screen name="Budgets" component={BudgetScreen} />
-      <Tab.Screen name="Plus" component={PlusMenuScreen} />
+      <Tab.Screen name="Plus" component={ParametresScreen} />
     </Tab.Navigator>
   );
 }

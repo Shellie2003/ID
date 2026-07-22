@@ -24,8 +24,8 @@ export default function Header({ hasNotification = true }: HeaderProps) {
         </Pressable>
 
         <View className="items-center">
-          <Logo size={56} />
-          <Text className="text-idealy-green text-2xl font-extrabold -mt-1">Idealy</Text>
+          <Logo size={76} />
+          <Text className="text-idealy-green text-3xl font-extrabold -mt-1">Idealy</Text>
         </View>
 
         <Pressable className="w-10 h-10 items-center justify-center" hitSlop={8}>

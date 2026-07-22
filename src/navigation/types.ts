@@ -17,4 +17,5 @@ export type TabParamList = {
 export type RootStackParamList = {
   Drawer: undefined;
   AddTransaction: undefined;
+  AddBudget: undefined;
 };
