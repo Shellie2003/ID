@@ -1,7 +1,9 @@
-name: Build Android Debug APK
+name: Build Android Test APK
 
-# Build non signé, keystore debug par défaut (aucune config à faire).
-# Sert uniquement à tester que l'app fonctionne sur un vrai appareil Android.
+# Variant "release" mais signé automatiquement avec le keystore debug généré par
+# Android (aucune config de keystore à faire). On évite le variant "debug" car
+# expo-dev-client y injecte l'écran "Development build" qui attend un serveur
+# Metro au lieu de lancer l'app directement.
 
 on:
   workflow_dispatch:
@@ -43,15 +45,15 @@ jobs:
           restore-keys: |
             gradle-${{ runner.os }}-
 
-      - name: Compiler l'APK debug
+      - name: Compiler l'APK (variant release, signé avec le keystore debug)
         working-directory: android
         run: |
           chmod +x ./gradlew
-          ./gradlew assembleDebug --no-daemon
+          ./gradlew assembleRelease --no-daemon
 
       - name: Publier l'APK en artifact
         uses: actions/upload-artifact@v5
         with:
-          name: idealy-debug-apk
-          path: android/app/build/outputs/apk/debug/app-debug.apk
+          name: idealy-test-apk
+          path: android/app/build/outputs/apk/release/app-release.apk
           retention-days: 14
